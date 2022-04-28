@@ -1,0 +1,17 @@
+architect:
+  - zehaoj
+
+install: |-
+  sudo update-java-alternatives -s java-1.8.0-openjdk-amd64
+  pdd --file=/dev/null
+env:
+  MAVEN_OPTS: -XX:MaxPermSize=256m -Xmx1g
+merge:
+  script: |-
+    mvn compile
+    java -cp target/classes com.mycompany.app.App
+# deploy:
+#   script: |-
+#     mvn clean deploy -Pqulice -DskipITs --errors --settings ../settings.xml
+#     mvn clean
+#     s3cmd --no-progress put jcabi-github.xml --config=../s3cfg s3://pdd.teamed.io/jcabi-github.xml

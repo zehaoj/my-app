@@ -10,8 +10,8 @@ merge:
   script: |-
     mvn compile
     java -cp target/classes com.mycompany.app.App
-# deploy:
-#   script: |-
-#     mvn clean deploy -Pqulice -DskipITs --errors --settings ../settings.xml
-#     mvn clean
-#     s3cmd --no-progress put jcabi-github.xml --config=../s3cfg s3://pdd.teamed.io/jcabi-github.xml
+deploy:
+  script: |-
+    mvn clean deploy -Pqulice -DskipITs --errors --settings ../settings.xml
+    mvn clean
+    s3cmd --no-progress put jcabi-github.xml --config=../s3cfg s3://pdd.teamed.io/jcabi-github.xml

@@ -9,6 +9,8 @@ merge:
   script:
     - "mvn clean install"
     - "java -cp target/classes com.mycompany.app.App"
+    
+    
 # deploy:
 #   script: |-
 #     mvn clean deploy -Pqulice -DskipITs --errors --settings ../settings.xml

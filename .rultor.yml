@@ -1,14 +1,19 @@
 architect:
   - zehaoj
 
+docker:
+  image: "ubuntu:12.10"
+  
 install: |-
   sudo update-java-alternatives -s java-1.8.0-openjdk-amd64
   pdd --file=/dev/null
+  
 env:
   MAVEN_OPTS: -XX:MaxPermSize=256m -Xmx1g
+  
 merge:
   script: |-
-    mvn compile
+    mvn clean install
     java -cp target/classes com.mycompany.app.App
 # deploy:
 #   script: |-

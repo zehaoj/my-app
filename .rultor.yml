@@ -1,17 +1,14 @@
 architect:
   - zehaoj
 
-docker:
-  image: "ubuntu:12.10"
-
 install: |-
   sudo update-java-alternatives -s java-1.8.0-openjdk-amd64
   pdd --file=/dev/null
   
 merge:
-  script: |-
-    mvn clean install
-    java -cp target/classes com.mycompany.app.App
+  script:
+    - "mvn clean install"
+    - "java -cp target/classes com.mycompany.app.App"
 # deploy:
 #   script: |-
 #     mvn clean deploy -Pqulice -DskipITs --errors --settings ../settings.xml
